@@ -1,0 +1,20 @@
+[package]
+name = "s2-compress-py"
+version = "0.1.0"
+edition = "2021"
+description = "S2 block compression for Python, compatible with Go klauspost/compress/s2"
+license = "Apache-2.0"
+repository = "https://github.com/axiros/s2-compress-py"
+publish = false
+
+[lib]
+name = "s2compress"
+crate-type = ["cdylib"]
+
+[dependencies]
+pyo3 = { version = "0.25", features = ["extension-module", "abi3-py311"] }
+minlz = { version = "1.2.3", default-features = false, features = ["std", "s2"] }
+
+[profile.release]
+lto = "thin"
+codegen-units = 1
