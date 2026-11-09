@@ -21,8 +21,15 @@ Errors raise `s2compress.S2Error`, a `ValueError`. `compress` takes at most 16 M
 
 ## Performance
 
-One core, Apple M4, 4 KB pieces of JSON data with many repeated keys: 4.46x, about 1500 MB/s
-compress and 1900 MB/s decompress through Python. 64 KB pieces compress about 6.6x.
+One core, through Python, JSON data with many repeated keys, best of 3 runs; MB/s of the
+uncompressed data.
+
+| Machine | Pieces | Ratio | Compress | Decompress |
+|---|---|---|---|---|
+| Apple M4, macOS, Python 3.12 | 4 KB | 4.46x | 1610 MB/s | 2320 MB/s |
+| | 64 KB | 6.61x | 1850 MB/s | 2470 MB/s |
+| AMD EPYC Genoa (cloud VM, 8 vCPU), Linux x86_64, Python 3.11 | 4 KB | 4.46x | 1150 MB/s | 1740 MB/s |
+| | 64 KB | 6.61x | 1320 MB/s | 2140 MB/s |
 
 ## Build
 
