@@ -57,3 +57,24 @@ jobs:
         with:
           name: sdist
           path: dist/*.tar.gz
+
+  # a tag v<version>: a GitHub Release with every wheel and the sdist, for
+  # pip install s2-compress-py --find-links https://github.com/axiros/s2-compress-py/releases/expanded_assets/v<version>
+  release:
+    if: startsWith(github.ref, 'refs/tags/v')
+    needs: [wheels, sdist]
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v5
+        with:
+          path: dist
+          merge-multiple: true
+      - name: create the release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          ls -l dist
+          gh release create "$GITHUB_REF_NAME" dist/* --repo "$GITHUB_REPOSITORY" \
+            --title "$GITHUB_REF_NAME" --notes "Wheels for Linux x86_64 and aarch64 (manylinux_2_28) and macOS arm64, abi3 for Python 3.11 and later; sdist."

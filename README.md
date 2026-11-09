@@ -5,6 +5,15 @@ S2 block compression for Python, compatible with Go's
 (`s2.Encode`, `s2.EncodeBetter`, `s2.Decode`). Built in Rust on
 [minlz](https://crates.io/crates/minlz). Python 3.11 and later.
 
+## Install
+
+```
+pip install s2-compress-py --find-links https://github.com/axiros/s2-compress-py/releases/expanded_assets/v0.1.0
+```
+
+Wheels for Linux x86_64 and aarch64 and macOS arm64 are attached to each
+[release](https://github.com/axiros/s2-compress-py/releases).
+
 ## Usage
 
 ```python
