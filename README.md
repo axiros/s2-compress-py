@@ -1,5 +1,11 @@
 # s2-compress-py
 
+[![CI](https://github.com/axiros/s2-compress-py/actions/workflows/ci.yml/badge.svg)](https://github.com/axiros/s2-compress-py/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/axiros/s2-compress-py)](https://github.com/axiros/s2-compress-py/releases)
+[![License](https://img.shields.io/github/license/axiros/s2-compress-py)](LICENSE)
+[![Python](https://img.shields.io/badge/python-3.11%2B-blue)](https://github.com/axiros/s2-compress-py)
+[![Platforms](https://img.shields.io/badge/wheels-linux%20x86__64%20%7C%20linux%20aarch64%20%7C%20macOS%20arm64-lightgrey)](https://github.com/axiros/s2-compress-py/releases)
+
 S2 block compression for Python, compatible with Go's
 [klauspost/compress/s2](https://github.com/klauspost/compress/tree/master/s2) block format
 (`s2.Encode`, `s2.EncodeBetter`, `s2.Decode`). Built in Rust on
