@@ -19,6 +19,11 @@ s2compress.decoded_len(block)                        # size from the block heade
 Errors raise `s2compress.S2Error`, a `ValueError`. `compress` takes at most 16 MiB
 (`MAX_COMPRESS`). The GIL is released while data is compressed or decompressed.
 
+## Performance
+
+One core, Apple M4, 4 KB pieces of JSON data with many repeated keys: 4.46x, about 1500 MB/s
+compress and 1900 MB/s decompress through Python. 64 KB pieces compress about 6.6x.
+
 ## Build
 
 ```
